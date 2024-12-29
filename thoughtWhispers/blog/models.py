@@ -2,7 +2,16 @@ from django.db import models
 from django.utils import timezone
 from django.conf import settings
 
+# Custom Managers
+class PublishedManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(status=Post.Status.PUBLISHED)
+
+# Models
 class Post(models.Model):
+
+    objects = models.Manager() # The default manager
+    published = PublishedManager() # custom manager
     class Meta:
         ordering = ['-publish', ]
         indexes = [ models.Index(fields=['-publish']), ]
