@@ -17,3 +17,4 @@ def post_detail(request, id):
                 {'post': post}
             )
 
+
