@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views.generic import ListView
 from .models import Post
 
+"""
 def post_list(request):
     all_posts = Post.published.all()
     # Pagination with 4 posts per page
@@ -22,6 +24,18 @@ def post_list(request):
                 'blog/post/list.html', 
                 {'posts': posts}
             )
+"""
+
+# Class-based view for post list
+class PostListView(ListView):
+    queryset = Post.published.all()
+    # The default variable is object_list if you don’t specify any context_object_name
+    context_object_name = 'posts'
+    paginate_by = 4
+    template_name = 'blog/post/list.html'
+
+    # Note: Django’s ListView generic view passes the page requested in a variable called page_obj. Use that name for pagination handling in the template.
+    # In-built exception handling: Also, If an attempt to load a page out of range or pass a non-integer value in the page parameter, the view will return an HTTP response with the status code 404 (page not found).
 
 def post_detail(request, year, month, day, post):
     post = get_object_or_404(Post, 
