@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'anymail',
     'blog.apps.BlogConfig',
 ]
 
@@ -123,15 +124,14 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Email server configuration
+# Email server configuration (using SendGrid)
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
-DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
+EMAIL_BACKEND = "anymail.backends.sendgrid.EmailBackend"
+ANYMAIL = {
+    "SENDGRID_API_KEY": config("SENDGRID_API_KEY"),  # SendGrid API key
+}
+DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL")  # Default email address for sending emails
+
 
 # By using this setting, Django will output all emails to the shell instead of sending them. 
 # This is very useful for testing your application without an SMTP server.

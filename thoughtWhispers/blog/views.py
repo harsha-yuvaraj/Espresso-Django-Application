@@ -68,7 +68,7 @@ def post_share(request, post_id):
            code =  send_mail(
                     subject=subject,
                     message=message,
-                    from_email=None,
+                    from_email=None,# uses Default email address
                     recipient_list=[cd['to']],
                    )
 
