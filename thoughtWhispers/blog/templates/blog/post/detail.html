@@ -16,6 +16,10 @@
     <a href="{% url 'blog:post_share' post.id %}"> 
        Share this post
     </a>
+    |
+    <a href="{% url 'blog:post_list' %}"> 
+      Go to Home
+   </a>
   </p>
 
   {% with comments.count as total_comments %}
