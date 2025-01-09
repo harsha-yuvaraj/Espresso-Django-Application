@@ -2,6 +2,7 @@ body {
     margin:0;
     padding:0;
     font-family:helvetica, sans-serif; 
+    background-color:#e8e6e6;
 }
 
 a { 
@@ -33,16 +34,7 @@ h2 {
     background:#efefef; 
     height:100%;
 }
-
-
-.anton-regular {
-    font-family: "Anton", serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 1.2em;
-  }
   
-
 p.date { 
     color:#242323;
     font-family: georgia, serif;
@@ -104,3 +96,36 @@ input[type=submit] {
     font-size:12px;
     color:#666;
 }
+
+/* tags */
+
+.tag{
+    color: #595150;
+    font-style: italic;
+}
+
+/* Google fonts */
+.anton-regular {
+    font-family: "Anton", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.2em;
+  }
+
+
+.domine-regular {
+    font-family: "Domine", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+  }
+
+.newsreader-regular {
+    font-family: "Newsreader", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.2em;
+  }
+  
+  

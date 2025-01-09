@@ -34,7 +34,7 @@ class PostListView(ListView):
     queryset = Post.published.all()
     # The default variable is object_list if you don’t specify any context_object_name
     context_object_name = 'posts'
-    paginate_by = 4
+    paginate_by = 3
     template_name = 'blog/post/list.html'
 
     # Note: Django’s ListView generic view passes the page requested in a variable called page_obj. Use that name for pagination handling in the template.

@@ -8,12 +8,20 @@
 
   {% for post in posts %}
      <h2>
-        <a href="{{ post.get_absolute_url }}"> {{ post.title }} </a>
-     </h2>
-
+        <a href="{{ post.get_absolute_url }}"> <span class="domine-regular">{{ post.title }}</span></a>
+     </h2>  
+     <p>Tags: 
+         {% for tag in post.tags.all %}
+             <span class="tag">{{tag.name}}</span>
+             {% if not forloop.last %},{% endif %}
+             
+             {% empty %}
+             <span class="tag"> No tags yet.</span>
+         {% endfor %}
+     </p>
      <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
 
-     {{ post.body|truncatewords:30|linebreaks }}
+    <span class="newsreader-regular"> {{ post.body|truncatewords:35|linebreaks }} </span>
   {% endfor %} 
 
   {% include "pagination.html" with page=page_obj %}

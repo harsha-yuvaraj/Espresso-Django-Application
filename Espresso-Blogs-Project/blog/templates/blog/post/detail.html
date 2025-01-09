@@ -4,13 +4,13 @@
 
 {% block content %}
 
-  <h1>{{ post.title }}</h1>
+  <h1><span class="domine-regular">{{ post.title }}</span></h1>
 
   <p class="date">
     Published {{ post.publish }} by {{ post.author }}
   </p>
 
-  {{ post.body|linebreaks }}
+  <span class="newsreader-regular">{{ post.body|linebreaks }}</span>
 
   <p>
     <a href="{% url 'blog:post_share' post.id %}"> 
