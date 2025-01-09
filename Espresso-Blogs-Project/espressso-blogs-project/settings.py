@@ -36,9 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.staticfiles', # End of django deafult apps
     'anymail',
-    'blog.apps.BlogConfig',
+    'taggit', # End of 3rd party apps
+    'blog.apps.BlogConfig', # End of local apps
 ]
 
 MIDDLEWARE = [
