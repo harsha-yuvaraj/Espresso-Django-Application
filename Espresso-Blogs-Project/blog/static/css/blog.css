@@ -100,8 +100,13 @@ input[type=submit] {
 /* tags */
 
 .tag{
-    color: #595150;
     font-style: italic;
+}
+
+.closer{
+    color: red;
+    font-size: 0.5em;
+    text-decoration: underline;
 }
 
 /* Google fonts */

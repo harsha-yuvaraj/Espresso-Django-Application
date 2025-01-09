@@ -1,16 +1,36 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.decorators.http import require_POST
-from django.core.mail import send_mail
 from django.views.generic import ListView
+from django.core.mail import send_mail
+from taggit.models import Tag
 from .forms import EmailPostForm, CommentForm
 from .models import Post
 
 """
-def post_list(request):
+# Class-based view for post list
+class PostListView(ListView):
+    queryset = Post.published.all()
+    # The default variable is object_list if you don’t specify any context_object_name
+    context_object_name = 'posts'
+    paginate_by = 3
+    template_name = 'blog/post/list.html'
+
+    # Note: Django’s ListView generic view passes the page requested in a variable called page_obj. Use that name for pagination handling in the template.
+    # In-built exception handling: Also, If an attempt to load a page out of range or pass a non-integer value in the page parameter, the view will return an HTTP response with the status code 404 (page not found).
+"""
+
+def post_list(request, tag_slug=None):
     all_posts = Post.published.all()
-    # Pagination with 4 posts per page
-    paginator = Paginator(all_posts, 4)
+
+    tag = None
+    # if tag_slug is not None, filter posts by given tag
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        all_posts = all_posts.filter(tags__in=[tag])
+
+    # Pagination with 3 posts per page
+    paginator = Paginator(all_posts, 3)
     page_number = request.GET.get('page', 1) # get the page number from the request, default to 1.
     
     try:
@@ -25,20 +45,8 @@ def post_list(request):
     return render(
                 request, 
                 'blog/post/list.html', 
-                {'posts': posts}
+                {'posts': posts, 'tag': tag}
             )
-"""
-
-# Class-based view for post list
-class PostListView(ListView):
-    queryset = Post.published.all()
-    # The default variable is object_list if you don’t specify any context_object_name
-    context_object_name = 'posts'
-    paginate_by = 3
-    template_name = 'blog/post/list.html'
-
-    # Note: Django’s ListView generic view passes the page requested in a variable called page_obj. Use that name for pagination handling in the template.
-    # In-built exception handling: Also, If an attempt to load a page out of range or pass a non-integer value in the page parameter, the view will return an HTTP response with the status code 404 (page not found).
 
 def post_detail(request, year, month, day, post):
     post = get_object_or_404(Post, 
