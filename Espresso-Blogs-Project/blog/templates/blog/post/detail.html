@@ -9,7 +9,9 @@
   <p class="date">
     Published {{ post.publish }} by {{ post.author }}
   </p>
-
+  
+  {% include "blog/post/includes/tags.html" %}
+  
   <span class="newsreader-regular">{{ post.body|linebreaks }}</span>
 
   <p>

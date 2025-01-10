@@ -19,17 +19,9 @@
      <h2>
         <a href="{{ post.get_absolute_url }}"> <span class="domine-regular">{{ post.title }}</span></a>
      </h2>  
-     <p>Tags: 
-         {% for tag in post.tags.all %}
-             <a href="{% url 'blog:post_list_by_tag' tag.slug %}">
-               <span class="tag">{{tag.name}}</span>
-             </a>
-             {% if not forloop.last %},{% endif %}
-             
-             {% empty %}
-             <span class="tag"> No tags yet.</span>
-         {% endfor %}
-     </p>
+
+     {% include "blog/post/includes/tags.html" %}
+
      <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
 
     <span class="newsreader-regular"> {{ post.body|truncatewords:35|linebreaks }} </span>
