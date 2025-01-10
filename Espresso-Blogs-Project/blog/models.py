@@ -14,7 +14,7 @@ class Post(models.Model):
 
     objects = models.Manager() # The default manager
     published = PublishedManager() # custom manager
-    tags = TaggableManager() # Tagging manager - provided by the taggit package
+    tags = TaggableManager(blank=True) # Tagging manager - provided by the taggit package
     class Meta:
         ordering = ['-publish', ]
         indexes = [ models.Index(fields=['-publish']), ]
