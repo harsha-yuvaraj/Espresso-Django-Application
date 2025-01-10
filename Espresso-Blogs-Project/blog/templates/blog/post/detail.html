@@ -22,6 +22,17 @@
    </a>
   </p>
 
+  <h2><span class="domine-regular">Similar posts you may enjoy:</span></h2>
+  {% for post in recommended_posts %}
+     <p>
+        <a href="{{ post.get_absolute_url }}">
+           {{ post.title }}
+        </a>
+     </p>
+  {% empty %}
+     <p>There are no similar posts yet :(</p>
+  {% endfor %}
+
   {% with comments.count as total_comments %}
      <h2>
         {{ total_comments }} comment{{ total_comments|pluralize }}
