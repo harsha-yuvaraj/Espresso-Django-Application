@@ -11,6 +11,10 @@ a {
     text-decoration:none; 
 }
 
+a:hover{
+    color: #008ac1;
+}
+
 h1 { 
     font-weight:normal;
     border-bottom:1px solid #bbb;
@@ -47,6 +51,7 @@ p.date {
     float:left;
     margin-right:10px;
 }
+
 
 /* pagination */
 .pagination { 
@@ -106,10 +111,6 @@ input[type=submit] {
 .tag{
     font-style: italic;
     transition: text-shadow 0.3s ease;
-}
-
-.tag:hover {
-    color: #008ac1;
 }
 
 .closer{
