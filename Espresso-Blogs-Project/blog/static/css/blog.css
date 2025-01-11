@@ -2,7 +2,8 @@ body {
     margin:0;
     padding:0;
     font-family:helvetica, sans-serif; 
-    background-color:#e8e6e6;
+    background-color:white;
+    /*#e8e6e6*/
 }
 
 a { 
@@ -51,6 +52,9 @@ p.date {
 .pagination { 
     margin:40px 0; 
     font-weight:bold;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
 }
 
 /* forms */
@@ -101,6 +105,11 @@ input[type=submit] {
 
 .tag{
     font-style: italic;
+    transition: text-shadow 0.3s ease;
+}
+
+.tag:hover {
+    color: #008ac1;
 }
 
 .closer{
@@ -115,6 +124,13 @@ input[type=submit] {
     font-weight: 400;
     font-style: normal;
     font-size: 1.2em;
+  }
+
+.anton-pagination {
+    font-family: "Anton", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1em;
   }
 
 
@@ -133,4 +149,13 @@ input[type=submit] {
     font-size: 1.2em;
   }
   
+  .card {
+    padding: 1px 10px;
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px;
+  }
   
+  .card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+  }

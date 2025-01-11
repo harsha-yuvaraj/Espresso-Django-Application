@@ -16,15 +16,17 @@
   {% endif %}
 
   {% for post in posts %}
+   <div class="card">
      <h2>
-        <a href="{{ post.get_absolute_url }}"> <span class="domine-regular">{{ post.title }}</span></a>
+        <a href="{{ post.get_absolute_url }}"> <span class="domine-regular">{{ post.title }}</span> </a>
      </h2>  
 
      {% include "blog/post/includes/tags.html" %}
 
      <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
 
-    <span class="newsreader-regular"> {{ post.body|truncatewords:35|linebreaks }} </span>
+     <span class="newsreader-regular"> {{ post.body|truncatewords:30|linebreaks }} </span>
+   </div>
   {% endfor %} 
 
   {% include "pagination.html" with page=posts %}
