@@ -45,7 +45,9 @@
   {% for comment in comments %}
      <div class="comment">
         <p class="info">
-           Comment {{ forloop.counter }} by {{ comment.name }} on {{ comment.created }}
+           {# {{ forloop.counter }} gives the current iteration counter of the loop. #}
+
+           {{ comment.name }} on {{ comment.created }}
         </p>
         {{ comment.body|linebreaks }}
      </div>
