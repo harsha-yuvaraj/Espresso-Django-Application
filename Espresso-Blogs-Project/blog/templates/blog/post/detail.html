@@ -1,4 +1,5 @@
 {% extends "blog/base.html" %}
+{% load blog_tags %}
 
 {% block title %} {{ post.title }} {% endblock %}
 
@@ -12,7 +13,7 @@
   
   {% include "blog/post/includes/tags.html" %}
   
-  <span class="newsreader-regular">{{ post.body|linebreaks }}</span>
+  <span class="newsreader-regular">{{ post.body|markdown }}</span>
 
   <p>
     <a href="{% url 'blog:post_share' post.id %}"> 

@@ -1,5 +1,7 @@
 from django import template
 from django.db.models import Count
+from django.utils.safestring import mark_safe
+from markdown import markdown
 from ..models import Post
 
 # This variable will be used to register the template tags and filters of the application.
@@ -19,3 +21,7 @@ def show_latest_posts(count=3):
 def get_most_commented_posts(count=3):
     # returns a queryset of posts with the total number of comments for each post.
     return Post.published.annotate(total_comments=Count('comments')).order_by('-total_comments')[:count]
+
+@register.filter(name='markdown')
+def markdown_format(text):
+    return mark_safe(markdown(text))
