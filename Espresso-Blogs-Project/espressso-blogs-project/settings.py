@@ -28,6 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+SITE_ID = 1
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -36,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles', # End of django deafult apps
+    'django.contrib.staticfiles', 
+    'django.contrib.sites',
+    'django.contrib.sitemaps', # End of django deafult apps
     'anymail',
     'taggit', # End of 3rd party apps
     'blog.apps.BlogConfig', # End of local apps
