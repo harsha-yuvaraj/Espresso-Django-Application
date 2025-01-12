@@ -3,6 +3,8 @@
       <li>
         <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
       </li>
+      {% empty %}
+      <p>None at this time.</p>
     {% endfor %}
 </ul>
   
