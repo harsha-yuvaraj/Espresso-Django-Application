@@ -25,6 +25,12 @@
             </span>
         </p>
 
+        <p>
+            <a href="{% url 'blog:post_feed' %}">
+                Subscribe to our RSS feed 🛜
+            </a>
+        </p>
+        
         <h3> <span class="domine-regular">Latest Posts</span> </h3>
         {% show_latest_posts %}
 
