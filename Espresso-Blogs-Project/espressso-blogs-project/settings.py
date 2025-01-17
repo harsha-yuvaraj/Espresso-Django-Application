@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles', 
     'django.contrib.sites',
-    'django.contrib.sitemaps', # End of django deafult apps
+    'django.contrib.sitemaps', 
+    'django.contrib.postgres', # End of django deafult apps
     'anymail',
     'taggit', # End of 3rd party apps
     'blog.apps.BlogConfig', # End of local apps

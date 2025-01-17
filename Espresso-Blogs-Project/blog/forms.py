@@ -16,6 +16,9 @@ class CommentForm(forms.ModelForm):
         model = Comment
         # explicitly tell Django which fields to include in the form
         fields = ['name', 'email', 'body']
+
+class SearchForm(forms.Form):
+    query = forms.CharField()
     
 
 

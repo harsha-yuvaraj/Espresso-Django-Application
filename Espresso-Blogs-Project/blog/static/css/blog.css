@@ -160,3 +160,20 @@ input[type=submit] {
   .card:hover {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
   }
+
+/* Search bar */
+
+.search-bar {
+    font-size: 0.9em;
+    border: 2px solid #00abff; 
+    background-color: #f1f1f1; 
+    padding: 8px 12px; 
+    border-radius: 4px; 
+    width: 100%;  
+    box-sizing: border-box; 
+}
+
+.search-bar:focus {
+    background-color: #ffffff; /* White background when focused */
+    outline: none; /* Remove default focus outline */
+}

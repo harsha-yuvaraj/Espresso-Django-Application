@@ -46,6 +46,13 @@
             {% endfor %}
         </ul>
 
+        <h3> <span class="domine-regular">Discover Posts Fast</span> </h3>
+        <form method="GET" action="{% url 'blog:post_search' %}">
+            <input type="text" name="query" placeholder="Type keywords..." class="search-bar">
+            <input type="submit" value="Search 🔍" />
+        </form>
+
+
     </div>
 </body>
 
