@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.decorators.http import require_POST
 from django.views.generic import ListView
@@ -134,22 +134,45 @@ def post_comment(request, post_id):
             )
 
 def post_search(request):
-    form, query, results = (SearchForm(), None, [])
+    form, query, results, all_results = (SearchForm(), None, [], [])
+
     if 'query' in request.GET:
         form = SearchForm(request.GET)
         if form.is_valid():
             query = form.cleaned_data['query']
-            results = Post.published.annotate(
+            all_results = Post.published.annotate(
                         search=SearchVector('title', 'body'),
                       ).filter(search=query)
+        else:
+            return redirect('blog:post_list')
+    
+    # Pagination with 8 posts per page
+    paginator = Paginator(all_results, 8)
+    page_number = request.GET.get('page', 1) # get the page number from the request, default to 1.
+    
+    try:
+       results = paginator.page(page_number)
+    except PageNotAnInteger:
+        # If page is not an integer, load the first page
+        results = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range, load the last page
+        results = paginator.page(paginator.num_pages)
+
+    # Query string for GET
+    query_string = request.GET.copy()
+    query_string.pop('page', None) # remove page from query string
+    query_string = query_string.urlencode()
             
     return render(
                 request,
-                'blog/post/search.html',
+                'blog/post/search_display.html',
                 {
                  'form': form, 
                  'query': query, 
-                 'results': results
+                 'query_string': query_string,
+                 'results': results,
+                 'results_count': all_results.count()
                 }
             )
 

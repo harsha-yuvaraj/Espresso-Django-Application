@@ -1,0 +1,28 @@
+{% extends "blog/base.html" %}
+{% load blog_tags %}
+
+{% block title %} The Espresso Blog {% endblock %}
+
+{% block content %} 
+    {% if query %}
+        <h1>Posts containing "{{ query }}"</h1>
+        <h3>
+            Found {{ results_count }} result{{ results_count|pluralize }}.
+            {% if results_count == 0 %} 😔 {% endif %}
+        </h3>
+
+        {% for post in results %}
+            <h4>
+                <a href="{{ post.get_absolute_url }}">
+                    {{ post.title }}
+                </a>
+            </h4>
+
+            {{ post.body|markdown|truncatewords:15 }}
+        {% endfor %} 
+    {% else %}
+      <p> No Results. Try searching again with different keywords. </p>
+    {% endif %}
+
+    {% include "pagination.html" with page=results query_string=query_string %}
+{% endblock %}
