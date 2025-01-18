@@ -1,16 +1,15 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.decorators.http import require_POST
-from django.views.generic import ListView
 from django.db.models import Count
 from django.core.mail import send_mail
-from django.contrib.postgres.search import SearchVector
+from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 from taggit.models import Tag
 from .forms import EmailPostForm, CommentForm, SearchForm
 from .models import Post
 
 """
-# Class-based view for post list
+# Class-based view for post list - import ListView to use this
 class PostListView(ListView):
     queryset = Post.published.all()
     # The default variable is object_list if you don’t specify any context_object_name
@@ -140,9 +139,15 @@ def post_search(request):
         form = SearchForm(request.GET)
         if form.is_valid():
             query = form.cleaned_data['query']
+
+            # Title matches will prevail over body content matches.
+            search_vector = SearchVector('title', weight='A') + SearchVector('body', weight='B')
+            search_query = SearchQuery(query)
+          
             all_results = Post.published.annotate(
-                        search=SearchVector('title', 'body'),
-                      ).filter(search=query)
+                            search=search_vector,
+                            rank=SearchRank(search_vector, search_query)
+                          ).filter(rank__gte=0.3).order_by('-rank')
         else:
             return redirect('blog:post_list')
     
