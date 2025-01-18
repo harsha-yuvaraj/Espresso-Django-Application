@@ -9,16 +9,21 @@
         <h3>
             Found {{ results_count }} result{{ results_count|pluralize }}.
             {% if results_count == 0 %} 😔 {% endif %}
+
+            <a href="{% url 'blog:post_list' %}">
+                <span class="closer">Return Home</span>
+            </a> 
         </h3>
 
         {% for post in results %}
-            <h4>
-                <a href="{{ post.get_absolute_url }}">
-                    {{ post.title }}
-                </a>
-            </h4>
-
-            {{ post.body|markdown|truncatewords:15 }}
+          <div>
+             <h4>
+                 <a href="{{ post.get_absolute_url }}">
+                     <span class="domine-regular"> {{ post.title }} </span>
+                 </a>
+             </h4>
+             <em> {{ post.body|markdown|truncatewords:15 }} </em>
+         </div>
         {% endfor %} 
     {% else %}
       <p> No Results. Try searching again with different keywords. </p>
