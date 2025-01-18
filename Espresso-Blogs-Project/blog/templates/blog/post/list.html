@@ -24,7 +24,7 @@
 
      {% include "blog/post/includes/tags.html" %}
 
-     <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
+     <p class="date">Published {{ post.publish }} <!-- by {{ post.author }} --> </p>
 
      <span class="newsreader-regular"> {{ post.body|markdown|truncatewords_html:30 }} </span>
    </div>
