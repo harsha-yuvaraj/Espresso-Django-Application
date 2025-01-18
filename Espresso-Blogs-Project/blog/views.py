@@ -145,7 +145,6 @@ def post_search(request):
             search_query = SearchQuery(query)
           
             all_results = Post.published.annotate(
-                            search=search_vector,
                             rank=SearchRank(search_vector, search_query)
                           ).filter(rank__gte=0.3).order_by('-rank')
         else:
