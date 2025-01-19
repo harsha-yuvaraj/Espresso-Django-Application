@@ -178,3 +178,9 @@ input[type=submit] {
     background-color: #ffffff; /* White background when focused */
     outline: none; /* Remove default focus outline */
 }
+
+/* Share post icons */
+
+.share-post > a {
+    margin-left: 5px;
+}

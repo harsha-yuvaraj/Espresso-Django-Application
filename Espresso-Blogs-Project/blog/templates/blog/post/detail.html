@@ -15,17 +15,7 @@
   
   <span class="newsreader-regular">{{ post.body|markdown }}</span>
 
-  <h3>
-   <span class="domine-regular">
-    Share post 
-      <a href="{% url 'blog:post_share' post.id %}" title="Share via email"> 
-         <i class="fas fa-envelope"></i>
-      </a>
-      <a class="copy-post-link" data-url="{{ request.build_absolute_uri }}" title="Share via link"> 
-         <i class="fas fa-link"></i>
-      </a>
-    </span>
-  </h3>
+  {% include "blog/post/includes/share_social.html" %}
 
   <h2><span class="domine-regular">Similar posts you may also enjoy:</span></h2>
   {% for post in recommended_posts %}

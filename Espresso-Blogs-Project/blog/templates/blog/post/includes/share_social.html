@@ -1,0 +1,27 @@
+{% load blog_tags %}
+
+<h3>
+    <span class="domine-regular">
+        Share post
+        <span class="share-post">
+            <a href="https://twitter.com/intent/tweet?text=Check%20out%20this%20post%20at%20The%20Espresso%20Blog!&url={{ request.build_absolute_uri }}"
+                target="_blank" title="Share via Twitter">
+                <i class="fab fa-x-twitter"></i>
+            </a>
+            <a href="https://www.linkedin.com/shareArticle?url={{ request.build_absolute_uri }}&title={{post.title | urlencode}}&summary={{post.body | markdown | truncatewords_html:15 | urlencode}}&source=The%20Espresso%20Blog"
+                target="_blank" title="Share via LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://t.me/share/url?url={{ request.build_absolute_uri }}&text=Check%20out%20this%20post%20at%20The%20Espresso%20Blog!"
+                target="_blank" title="Share via Telegram">
+                <i class="fab fa-telegram-plane"></i>
+            </a>
+            <a href="{% url 'blog:post_share' post.id %}" title="Share via email">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a class="copy-post-link" data-url="{{ request.build_absolute_uri }}" title="Share via link">
+                <i class="fas fa-link"></i>
+            </a>
+        </span>
+    </span>
+</h3>
