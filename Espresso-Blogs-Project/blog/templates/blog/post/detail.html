@@ -15,15 +15,17 @@
   
   <span class="newsreader-regular">{{ post.body|markdown }}</span>
 
-  <p>
-    <a href="{% url 'blog:post_share' post.id %}"> 
-       Share this post
-    </a>
-    |
-    <a href="{% url 'blog:post_list' %}"> 
-      Return home
-   </a>
-  </p>
+  <h3>
+   <span class="domine-regular">
+    Share post 
+      <a href="{% url 'blog:post_share' post.id %}" title="Share via email"> 
+         <i class="fas fa-envelope"></i>
+      </a>
+      <a href="{% url 'blog:post_share' post.id %}" title="Share via link"> 
+         <i class="fas fa-link"></i>
+      </a>
+    </span>
+  </h3>
 
   <h2><span class="domine-regular">Similar posts you may also enjoy:</span></h2>
   {% for post in recommended_posts %}

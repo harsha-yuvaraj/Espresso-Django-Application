@@ -6,6 +6,7 @@
 <head>
     <title>{% block title %}{% endblock %}</title>
     <link href="{% static 'css/blog.css' %}" rel="stylesheet">
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Anton');
         @import url('https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
@@ -18,7 +19,11 @@
         {% endblock %}
     </div>
     <div id="sidebar">
-        <h2> <span class="domine-regular">Explore Our Content</span> </h2>
+        <h2> 
+            <a href="{% url 'blog:post_list' %}">
+                <span class="domine-regular">Explore Our Content</span> 
+            </a>
+        </h2>
         <p>
             <span class="newsreader-regular">  
                 Total posts so far: {% total_posts %} 

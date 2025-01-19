@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps', 
     'django.contrib.postgres', # End of django deafult apps
     'anymail',
-    'taggit', # End of 3rd party apps
+    'taggit', 
+    'fontawesomefree', # End of 3rd party apps
     'blog.apps.BlogConfig', # End of local apps
 ]
 
