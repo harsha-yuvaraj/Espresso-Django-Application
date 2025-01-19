@@ -21,7 +21,7 @@
       <a href="{% url 'blog:post_share' post.id %}" title="Share via email"> 
          <i class="fas fa-envelope"></i>
       </a>
-      <a href="{% url 'blog:post_share' post.id %}" title="Share via link"> 
+      <a class="copy-post-link" data-url="{{ request.build_absolute_uri }}" title="Share via link"> 
          <i class="fas fa-link"></i>
       </a>
     </span>
