@@ -170,4 +170,12 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
+# ignore local staticfiles folder
 staticfiles/
+
+# Igonre terraform files
+*.tfvars
+*.tfstate
+terraform.tfstate.backup
+.terraform/
+

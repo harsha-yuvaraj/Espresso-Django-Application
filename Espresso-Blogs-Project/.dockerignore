@@ -33,3 +33,12 @@ staticfiles/
 # Ignore the directory where your compiled binaries or other build artifacts are stored
 build/
 dist/
+
+# Ignore Terraform files
+*.tfvars
+*.tf
+*.tfstate
+terraform.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
