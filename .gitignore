@@ -180,5 +180,5 @@ staticfiles/
 *.tfvars
 *.tfstate
 terraform.tfstate.backup
-
+.terraform.tfstate.lock.info
 
