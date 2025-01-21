@@ -126,6 +126,7 @@ resource "aws_instance" "web" {
     # Create .env file with environment variables
     echo "SECRET_KEY=${var.SECRET_KEY}" > .env
     echo "DEBUG=${var.DEBUG}" >> .env
+    echo "ALLOWED_HOSTS=${var.ALLOWED_HOSTS}" >> .env
     echo "SENDGRID_API_KEY=${var.SENDGRID_API_KEY}" >> .env
     echo "DEFAULT_FROM_EMAIL=${var.DEFAULT_FROM_EMAIL}" >> .env
     echo "DB_NAME=${var.DB_NAME}" >> .env

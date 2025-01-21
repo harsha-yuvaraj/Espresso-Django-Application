@@ -37,3 +37,4 @@ variable "DB_PASSWORD" {
 }
 variable "DB_HOST" {}
 variable "DB_PORT" { type = number }
+variable "ALLOWED_HOSTS" {}
