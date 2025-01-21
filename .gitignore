@@ -174,8 +174,11 @@ cython_debug/
 staticfiles/
 
 # Igonre terraform files
+.terraform/
+.terraform/providers/registry.terraform.io/hashicorp/aws/5.84.0/windows_amd64/terraform-provider-aws_v5.84.0_x5.exe
+.terraform/providers/registry.terraform.io/hashicorp/aws/5.84.0/windows_amd64/LICENSE.txt
 *.tfvars
 *.tfstate
 terraform.tfstate.backup
-.terraform/
+
 

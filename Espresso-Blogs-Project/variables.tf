@@ -19,10 +19,13 @@ variable "AWS_ECR_REPO_URI" {
 variable "AWS_ECR_DOCKER_IMAGE" {
       sensitive = true
 }
+variable "AWS_RDS_EGRESS_CIDR" {}
+variable "AWS_RDS_INGRESS_CIDR" {}
+
 variable "SECRET_KEY" {
   sensitive = true
 }
-variable "DEBUG" {}
+variable "DEBUG" { type = bool }
 variable "SENDGRID_API_KEY" {
   sensitive = true
 }
