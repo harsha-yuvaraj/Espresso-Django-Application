@@ -25,7 +25,7 @@ variable "AWS_RDS_INGRESS_CIDR" {}
 variable "SECRET_KEY" {
   sensitive = true
 }
-variable "DEBUG" { type = bool }
+variable "DEBUG" {}
 variable "SENDGRID_API_KEY" {
   sensitive = true
 }
