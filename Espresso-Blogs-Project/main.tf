@@ -42,7 +42,7 @@ resource "aws_route_table" "default" {
 resource "aws_subnet" "subnet1" {
   vpc_id                  = aws_vpc.default.id
   cidr_block              = var.AWS_SUBNET1_CIDR_BLOCK
-  map_public_ip_on_launch = true
+  map_public_ip_on_launch = false
   availability_zone       = var.AWS_SUBNET1_AZ
   tags = {
     Name = "Espresso_Django_EC2_Subnet_1"
@@ -54,7 +54,7 @@ resource "aws_subnet" "subnet1" {
 resource "aws_subnet" "subnet2" {
   vpc_id                  = aws_vpc.default.id
   cidr_block              = var.AWS_SUBNET2_CIDR_BLOCK
-  map_public_ip_on_launch = true
+  map_public_ip_on_launch = false
   availability_zone       = var.AWS_SUBNET2_AZ
   tags = {
     Name = "Espresso_Django_EC2_Subnet_2"
