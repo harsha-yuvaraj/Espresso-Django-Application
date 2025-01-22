@@ -78,7 +78,13 @@ resource "aws_security_group" "ec2_sg" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = [var.AWS_SECURITY_EC2_INGRESS_CIDR] # Only allow HTTPS traffic
+    cidr_blocks = [var.AWS_SECURITY_EC2_INGRESS_CIDR] # Only allow HTTP traffic
+  }
+  ingress {
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = [var.AWS_SECURITY_EC2_INGRESS_CIDR] # Only allow HTTPs traffic
   }
   egress {
     from_port   = 0
@@ -138,10 +144,10 @@ resource "aws_instance" "web" {
     # Run the Docker image
     sudo docker run -d -p 80:8080 --env-file .env --name espresso-django-container ${var.AWS_ECR_REPO_URI}/${var.AWS_ECR_DOCKER_IMAGE}
     
-    sleep 10 
+    sudo sleep 10
 
-    # Run collectstatic inside the container
-    docker exec -it espresso-django-container python manage.py collectstatic --noinput
+    # Run collectstatic inside the container and restart the container
+    sudo docker exec -it espresso-django-container python manage.py collectstatic --noinput && sudo docker restart espresso-django-container
     EOF
 
   tags = {

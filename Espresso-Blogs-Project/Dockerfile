@@ -19,5 +19,5 @@ RUN pip install -r requirements.txt
 EXPOSE ${PORT}
 
 # Run the application using Gunicorn
-CMD ["sh", "-c", "gunicorn espressso-blogs-project.wsgi:application --bind 0.0.0.0:${PORT}"]
+CMD ["sh", "-c", "gunicorn espressso-blogs-project.wsgi:application --timeout 120 --bind 0.0.0.0:${PORT}"]
 

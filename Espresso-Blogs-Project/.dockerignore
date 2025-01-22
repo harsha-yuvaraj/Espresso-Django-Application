@@ -18,9 +18,6 @@ db.sqlite3
 # Ignore media files
 media/
 
-# Ignore static files (if already collecting static)
-staticfiles/
-
 # Ignore IDE/editor files
 .idea/
 .vscode/
@@ -42,3 +39,8 @@ terraform.tfstate.backup
 .terraform/
 .terraform.lock.hcl
 
+# Ignore Docker files
+Dockerfile
+
+# Igonre the docker build automation script in ps1
+docker-ecr-deploy.ps1
