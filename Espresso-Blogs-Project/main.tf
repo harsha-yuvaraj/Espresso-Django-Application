@@ -142,7 +142,7 @@ resource "aws_instance" "web" {
     echo "DB_PORT=${var.DB_PORT}" >> .env
 
     # Run the Docker image
-    sudo docker run -d -p 80:8080 --env-file .env --name espresso-django-container ${var.AWS_ECR_REPO_URI}/${var.AWS_ECR_DOCKER_IMAGE}
+    sudo docker run -d -p 8080:8080 --env-file .env --name espresso-django-container ${var.AWS_ECR_REPO_URI}/${var.AWS_ECR_DOCKER_IMAGE}
     
     sudo sleep 10
 

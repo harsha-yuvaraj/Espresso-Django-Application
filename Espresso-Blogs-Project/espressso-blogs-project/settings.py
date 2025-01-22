@@ -27,6 +27,8 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=lambda v: [s.strip() for s in v.split(',')])
 
+CSRF_TRUSTED_ORIGINS = ['https://espressoblog.online', 'https://www.espressoblog.online']
+
 SITE_ID = 1
 
 # Application definition
