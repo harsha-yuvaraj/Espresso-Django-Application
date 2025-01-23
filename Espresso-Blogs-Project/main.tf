@@ -142,10 +142,8 @@ resource "aws_instance" "web" {
     echo "DB_PORT=${var.DB_PORT}" >> .env
 
     # Run the Docker image
-    sudo docker run -d -p 8080:8080 --env-file .env --name espresso-django-container ${var.AWS_ECR_REPO_URI}/${var.AWS_ECR_DOCKER_IMAGE}
+    sudo docker run -d -p 8080:8080 --env-file .env --name espresso-django-container ${var.AWS_ECR_REPO_URI}/${var.AWS_ECR_DOCKER_IMAGE} && sudo sleep 15
     
-    sudo sleep 10
-
     # Run collectstatic inside the container and restart the container
     sudo docker exec -it espresso-django-container python manage.py collectstatic --noinput && sudo docker restart espresso-django-container
     EOF

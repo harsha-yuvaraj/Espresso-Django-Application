@@ -32,7 +32,6 @@ CSRF_TRUSTED_ORIGINS = ['https://espressoblog.online', 'https://www.espressoblog
 SITE_ID = 1
 
 # Application definition
-
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic', # Whitenoise should come before all other apps - ensures that Whitenoise takes over the responsibility of serving static files also during local development, allowing to test Whitenoise's static file handling properly
     'django.contrib.admin',

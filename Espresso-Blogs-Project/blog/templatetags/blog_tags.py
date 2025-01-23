@@ -20,7 +20,7 @@ def show_latest_posts(count=4):
 @register.simple_tag
 def get_most_commented_posts(count=4):
     # returns a queryset of posts with the total number of comments for each post.
-    return Post.published.annotate(total_comments=Count('comments')).order_by('-total_comments')[:count]
+    return Post.published.annotate(total_comments=Count('comments')).filter(total_comments__gt=0).order_by('-total_comments')[:count]
 
 @register.filter(name='markdown')
 def markdown_format(text):
