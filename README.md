@@ -16,7 +16,8 @@
 - Recommendation system for "Similar Posts" to keep readers engaged by suggesting relevant content.
 - Pagination of posts for easy content navigation.  
 - Comment system for user engagement and discussions.  
-- Social media integration with content sharing options for **Twitter (X)**, **LinkedIn**, **Telegram**, **Email**, and **Direct link sharing**.  
+- Social media integration with content sharing options for **Twitter (X)**, **LinkedIn**, **Telegram**, and **Direct link sharing**.  
+- **SendGrid** integration for email-based content sharing. 
 - Sitemap to enhance SEO and improve search engine visibility.
 - RSS feed for easy subscription to updates. 
 
