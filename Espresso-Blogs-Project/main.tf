@@ -105,7 +105,7 @@ resource "aws_instance" "web" {
   subnet_id              = aws_subnet.subnet1.id # Place this instance in one of the private subnets
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
 
-  associate_public_ip_address = true # Assigns a public IP address to your instance
+  associate_public_ip_address = true # Assigns a public IP address to the instance
   user_data_replace_on_change = true # Replace the user data when it changes
 
   iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
