@@ -20,14 +20,14 @@
         {% endblock %}
     </div>
     <div id="sidebar">
-        <h2> 
+        <h2>
             <a href="{% url 'blog:post_list' %}">
-                <span class="domine-regular">Explore Our Content</span> 
+                <span class="domine-regular">Explore Our Content</span>
             </a>
         </h2>
         <p>
-            <span class="newsreader-regular">  
-                Total posts so far: {% total_posts %} 
+            <span class="newsreader-regular">
+                Total posts so far: {% total_posts %}
             </span>
         </p>
 
@@ -36,9 +36,20 @@
                 Subscribe to our RSS feed 🛜
             </a>
         </p>
-        
+
+
+        <h3> <span class="domine-regular">Discover Posts Fast</span> </h3>
+        <form method="GET" action="{% url 'blog:post_search' %}">
+            <input type="text" name="query" placeholder="🔍 Search for posts..." class="search-bar" pattern=".*\S.*"
+                title="Empty search not allowed." required>
+        </form>
+
+
+
         <h3> <span class="domine-regular">Latest Posts</span> </h3>
         {% show_latest_posts %}
+
+
 
         <h3> <span class="domine-regular">Most Discussed Posts</span> </h3>
         {% get_most_commented_posts as most_commented_posts %}
@@ -51,13 +62,6 @@
             <p>None at this time.</p>
             {% endfor %}
         </ul>
-
-        <h3> <span class="domine-regular">Discover Posts Fast</span> </h3>
-        <form method="GET" action="{% url 'blog:post_search' %}">
-            <input type="text" name="query" placeholder="Type keywords..." class="search-bar" pattern=".*\S.*" title="Empty search not allowed." required>
-            <input type="submit" value="Search 🔍" />
-        </form>
-
 
     </div>
 </body>

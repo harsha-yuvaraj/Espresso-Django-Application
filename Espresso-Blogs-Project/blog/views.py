@@ -27,7 +27,7 @@ def post_list(request, tag_slug=None):
     # if tag_slug is not None, filter posts by given tag
     if tag_slug:
         tag = get_object_or_404(Tag, slug=tag_slug)
-        all_posts = all_posts.filter(tags__in=[tag])
+        all_posts = all_posts.filter(tags__in=[tag]).order_by('-publish')
 
     # Pagination with 3 posts per page
     paginator = Paginator(all_posts, 3)
@@ -55,8 +55,6 @@ def post_detail(request, year, month, day, post):
                              publish__year=year,
                              publish__month=month,
                              publish__day=day)
-    
-    print(f"Debug: {post.id}")
     
     # list of active comments for this post
     comments = post.comments.filter(active=True)
