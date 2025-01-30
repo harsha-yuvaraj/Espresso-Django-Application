@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.postgres', # End of django deafult apps
     'anymail',
     'taggit', 
+    'django_bootstrap5',
     'fontawesomefree', # End of 3rd party apps
     'blog.apps.BlogConfig', # End of local apps
 ]
