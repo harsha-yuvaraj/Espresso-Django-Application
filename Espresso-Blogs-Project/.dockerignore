@@ -44,3 +44,6 @@ Dockerfile
 
 # Igonre the docker build automation script in ps1
 docker-ecr-deploy.ps1
+
+# Igonre staticfiles folder
+staticfiles/
