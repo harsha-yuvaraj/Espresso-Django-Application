@@ -5,15 +5,28 @@
 
 {% block content %}
 
-  <h1><span class="domine-regular">{{ post.title }}</span></h1>
+  <h1><span class="domine-regular" id="post-title">{{ post.title }}</span></h1>
 
   <p class="date">
     Published {{ post.publish }} <!-- by {{ post.author }} -->
   </p>
   
-  {% include "blog/post/includes/tags.html" %}
-  
-  <span class="newsreader-regular">{{ post.body|markdown }}</span>
+   <div class="group-links">
+     {% include "blog/post/includes/tags.html" %}
+     <button class="domine-regular" id="openModalBtn">✨ Quick Summary</button>
+   </div>
+
+  <!-- Modal Structure -->
+  <div id="myModal" class="modal">
+      <div class="modal-content">
+          <span id="closeModalBtn" class="close">&times;</span>
+          <h1 id="modalHeader">✨ Quick Summary</h1>
+          <p id="modalText"></p>
+      </div>
+  </div>
+
+
+  <span class="newsreader-regular" id="post-body">{{ post.body|markdown }}</span>
 
   {% include "blog/post/includes/share_social.html" %}
 
