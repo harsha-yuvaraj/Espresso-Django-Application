@@ -147,6 +147,9 @@ ANYMAIL = {
 }
 DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL")  # Default email address for sending emails
 
+# OpenAI API key
+
+OPENAI_API_KEY = config("OPENAI_API_KEY")
 
 # By using this setting, Django will output all emails to the shell instead of sending them. 
 # This is very useful for testing your application without an SMTP server.

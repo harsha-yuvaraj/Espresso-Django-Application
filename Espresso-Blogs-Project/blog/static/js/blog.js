@@ -23,9 +23,27 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("openModalBtn")
     .addEventListener("click", function () {
-      document.getElementById("myModal").style.display = "block";
-      let postText = document.getElementById("post-body").innerText;
-      typeWriter("modalText", postText, 20);
+      let postId = parseInt(document.getElementById("post-body").getAttribute("data-post-id"));
+      let csrfToken = document.querySelector("[name=csrfmiddlewaretoken]").value;
+      let apiEndpoint = document.getElementById("post-body").getAttribute("data-post-url");
+      let postSummary = "";
+
+      fetch(apiEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken": csrfToken, 
+        },
+        body: JSON.stringify({
+          post_id: postId,
+      }), 
+      }).then(
+        (response) => response.json()
+      ).then((data) => {
+        postSummary = data.summary || "Error generating summary. Please try again later. 😐";
+        document.getElementById("myModal").style.display = "block";
+        typeWriter("modalText", postSummary, 20);
+      })
     });
 
   // Close the modal
