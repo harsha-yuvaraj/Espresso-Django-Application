@@ -225,4 +225,4 @@ def generate_post_summary(request):
             return JsonResponse({'error': f'An error occurred while generating the summary.\n {str(e)} '}, status=500)
 
     except Exception as e:
-        return JsonResponse({'error': 'Invalid request'})
+        return JsonResponse({'error': 'Invalid request'}, status=400)

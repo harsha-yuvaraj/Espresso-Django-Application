@@ -23,27 +23,42 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("openModalBtn")
     .addEventListener("click", function () {
+
+      const spinner = document.getElementById("spinnerIcon");
+      spinner.classList.remove("hidden");
+
       let postId = parseInt(document.getElementById("post-body").getAttribute("data-post-id"));
       let csrfToken = document.querySelector("[name=csrfmiddlewaretoken]").value;
       let apiEndpoint = document.getElementById("post-body").getAttribute("data-post-url");
       let postSummary = "";
 
-      fetch(apiEndpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-CSRFToken": csrfToken, 
-        },
-        body: JSON.stringify({
-          post_id: postId,
-      }), 
-      }).then(
-        (response) => response.json()
-      ).then((data) => {
-        postSummary = data.summary || "Error generating summary. Please try again later. 😐";
-        document.getElementById("myModal").style.display = "block";
-        typeWriter("modalText", postSummary, 20);
-      })
+      try{
+          fetch(apiEndpoint, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-CSRFToken": csrfToken, 
+            },
+            body: JSON.stringify({
+              post_id: postId,
+          }), 
+          }).then((response) => {
+              if (!response.ok) 
+                throw new Error("Error generating summary. Please try again later.");
+
+              return response.json()
+
+            }).then((data) => {
+                spinner.classList.add("hidden");
+                postSummary = data.summary || "Error generating summary. Please try again later. 😐";
+                document.getElementById("myModal").style.display = "block";
+                typeWriter("modalText", postSummary, 15);
+              })
+    } catch (error) {
+      spinner.classList.add("hidden");
+      alert("Error generating summary. Please try again later. 😐");
+    } 
+
     });
 
   // Close the modal

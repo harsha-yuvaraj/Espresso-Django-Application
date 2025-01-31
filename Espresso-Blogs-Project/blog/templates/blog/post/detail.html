@@ -5,63 +5,67 @@
 
 {% block content %}
 
-  <h1><span class="domine-regular">{{ post.title }}</span></h1>
+<h1><span class="domine-regular">{{ post.title }}</span></h1>
 
-  <p class="date">
-    Published {{ post.publish }} <!-- by {{ post.author }} -->
-  </p>
-  
-   <div class="group-links">
-     {% include "blog/post/includes/tags.html" %}
-     <button class="domine-regular" id="openModalBtn">✨ Quick Summary</button>
+<p class="date">
+   Published {{ post.publish }} <!-- by {{ post.author }} -->
+</p>
+
+<div class="group-links">
+   {% include "blog/post/includes/tags.html" %}
+   <button class="domine-regular" id="openModalBtn"> 
+      <span id="spinnerIcon" class="spinner hidden"></span> 
+      <spanid="summaryIcon">✨</span> Quick Summary
+   </button>
+</div>
+
+<!-- Modal Structure -->
+<div id="myModal" class="modal">
+   <div class="modal-content">
+      <span id="closeModalBtn" class="close">&times;</span>
+      <h1 id="modalHeader">✨ Quick Summary</h1>
+      <p id="modalText"></p>
    </div>
 
-  <!-- Modal Structure -->
-  <div id="myModal" class="modal">
-      <div class="modal-content">
-          <span id="closeModalBtn" class="close">&times;</span>
-          <h1 id="modalHeader">✨ Quick Summary</h1>
-          <p id="modalText"></p>
-      </div>
-
-      <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-  </div>
+   <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+</div>
 
 
-  <span class="newsreader-regular" id="post-body" data-post-id="{{ post.id }}" data-post-url="{% url 'blog:generate_post_summary' %}">{{ post.body|markdown }}</span>
+<span class="newsreader-regular" id="post-body" data-post-id="{{ post.id }}"
+   data-post-url="{% url 'blog:generate_post_summary' %}">{{ post.body|markdown }}</span>
 
-  {% include "blog/post/includes/share_social.html" %}
+{% include "blog/post/includes/share_social.html" %}
 
-  <h2><span class="domine-regular">Similar posts you may also enjoy:</span></h2>
-  {% for post in recommended_posts %}
-     <p>
-        <a href="{{ post.get_absolute_url }}">
-           {{ post.title }}
-        </a>
-     </p>
-  {% empty %}
-     <p>There are no similar posts yet :(</p>
-  {% endfor %}
+<h2><span class="domine-regular">Similar posts you may also enjoy:</span></h2>
+{% for post in recommended_posts %}
+<p>
+   <a href="{{ post.get_absolute_url }}">
+      {{ post.title }}
+   </a>
+</p>
+{% empty %}
+<p>There are no similar posts yet :(</p>
+{% endfor %}
 
-  {% with comments.count as total_comments %}
-     <h2>
-        {{ total_comments }} comment{{ total_comments|pluralize }}
-     </h2>
-  {% endwith %}
+{% with comments.count as total_comments %}
+<h2>
+   {{ total_comments }} comment{{ total_comments|pluralize }}
+</h2>
+{% endwith %}
 
-  {% for comment in comments %}
-     <div class="comment">
-        <p class="info">
-           {# {{ forloop.counter }} gives the current iteration counter of the loop. #}
+{% for comment in comments %}
+<div class="comment">
+   <p class="info">
+      {# {{ forloop.counter }} gives the current iteration counter of the loop. #}
 
-           {{ comment.name }} on {{ comment.created }}
-        </p>
-        {{ comment.body|linebreaks }}
-     </div>
-  {% empty %}
-     <p>There are no comments yet.</p>
-  {% endfor %}
+      {{ comment.name }} on {{ comment.created }}
+   </p>
+   {{ comment.body|linebreaks }}
+</div>
+{% empty %}
+<p>There are no comments yet.</p>
+{% endfor %}
 
-  {% include "blog/post/includes/comment_form.html" %}
+{% include "blog/post/includes/comment_form.html" %}
 
 {% endblock %}
