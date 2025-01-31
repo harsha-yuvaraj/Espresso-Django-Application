@@ -239,20 +239,25 @@ input[type=submit] {
     align-items: center;
 }
 
+
 #openModalBtn {
     background-color: rgba(0, 171, 255, 0.2);
     color: #00abff;
     padding: 5px 10px;
-    border-color: rgba(0, 171, 255, 0.8);
-    border-radius: 10px;
     cursor: pointer;
     font-size: 1em;
+    border-radius: 10px;
+    border: solid 2px rgba(0, 171, 255, 0.5);
+    transition: box-shadow 0.3s ease, border 0.3s ease; 
 }
 
 #openModalBtn:focus,
 #openModalBtn:hover {
-    background-color: rgba(0, 171, 255, 0.4);
+    border-radius: 10px;
+    border: solid 2px rgba(0, 171, 255, 1);
+    box-shadow: 0 2px 4px rgba(0, 171, 255, 0.6); 
 }
+
 
 .spinner {
     border: 2px solid #f3f3f3;
