@@ -43,14 +43,29 @@ document.addEventListener("DOMContentLoaded", function () {
               post_id: postId,
           }), 
           }).then((response) => {
-              if (!response.ok) 
-                throw new Error("Error generating summary. Please try again later.");
+              if (!response.ok) {
+                  spinner.classList.add("hidden");
+
+                  if(response.status === 429){
+                    alert("Whoa, you’ve hit your 10-summary limit for today! Time to roll up your sleeves 😎 and dive into the full articles!");
+                  }
+                  else{
+                    alert("Error generating summary. Please try again later. 😐");
+                  }
+
+                  // break here to prevent further execution
+                  return;
+              }
 
               return response.json()
 
             }).then((data) => {
+                
+                if (!data) 
+                  return;
+
                 spinner.classList.add("hidden");
-                postSummary = data.summary || "Error generating summary. Please try again later. 😐";
+                postSummary = data.summary || "No summary available.";
                 document.getElementById("myModal").style.display = "block";
                 typeWriter("modalText", postSummary, 15);
               })

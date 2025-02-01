@@ -6,6 +6,8 @@ from django.http import JsonResponse
 from django.db.models import Count
 from django.core.mail import send_mail
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
+from rest_framework.decorators import api_view, throttle_classes
+from rest_framework.throttling import AnonRateThrottle
 from taggit.models import Tag
 from decouple import config
 import json
@@ -187,7 +189,8 @@ def post_search(request):
 
 
 @csrf_protect
-@require_POST
+@api_view(['POST'])
+@throttle_classes([AnonRateThrottle])
 def generate_post_summary(request):
     client = OpenAI(api_key=config('OPENAI_API_KEY'))
 

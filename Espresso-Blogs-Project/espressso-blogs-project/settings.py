@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sitemaps', 
     'django.contrib.postgres', # End of django deafult apps
+    'rest_framework',
     'anymail',
     'taggit', 
     'fontawesomefree', # End of 3rd party apps
@@ -148,8 +149,21 @@ ANYMAIL = {
 DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL")  # Default email address for sending emails
 
 # OpenAI API key
-
 OPENAI_API_KEY = config("OPENAI_API_KEY")
+
+# Django Rest Framework settings
+REST_FRAMEWORK = {
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',  # Throttling for unauthenticated users
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': config('API_THROTTLE_RATE'),  
+    },
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',  # Disable Browsable API
+    ],
+}
+
 
 # By using this setting, Django will output all emails to the shell instead of sending them. 
 # This is very useful for testing your application without an SMTP server.
