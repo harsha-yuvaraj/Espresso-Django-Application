@@ -10,15 +10,16 @@
 ## Features  
 
 - Tag-based filtering to focus on topics of interest.  
-- Full-text search with stemming for ranked and accurate results. 
+- **Full-text search** with stemming for ranked and accurate results. 
 - Latest posts section to showcase new content.  
 - Most discussed posts highlighting popular articles with high user engagement.  
-- Recommendation system for "Similar Posts" to keep readers engaged by suggesting relevant content.
-- Pagination of posts for easy content navigation.  
-- Comment system for user engagement and discussions.  
-- Social media integration with content sharing options for **Twitter (X)**, **LinkedIn**, **Telegram**, and **Direct link sharing**.  
+- Comment system for user engagement and discussions.
+- **Recommendation system** for "Similar Posts" to keep readers engaged by suggesting relevant content.   
+- **Social media integration** with content sharing options for **Facebook**, **Twitter (X)**, **LinkedIn**, **Telegram**, and **Direct link sharing**.  
 - **SendGrid** integration for email-based content sharing. 
-- Sitemap to enhance SEO and improve search engine visibility.
+- **AI** summaries of lengthy posts utilizing the **OpenAI API**.
+    - **API Throttling**: Implemented **rate-limiting** with a cap of **10 requests per day** for all users to ensure fair usage and prevent API abuse.
+- **Sitemap** to enhance **SEO** and improve **search engine visibility**.
 - RSS feed for easy subscription to updates. 
 
 
