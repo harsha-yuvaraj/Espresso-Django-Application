@@ -38,3 +38,7 @@ variable "DB_PASSWORD" {
 variable "DB_HOST" {}
 variable "DB_PORT" { type = number }
 variable "ALLOWED_HOSTS" {}
+variable "OPENAI_API_KEY" {
+  sensitive = true
+}
+variable "API_THROTTLE_RATE" {}
