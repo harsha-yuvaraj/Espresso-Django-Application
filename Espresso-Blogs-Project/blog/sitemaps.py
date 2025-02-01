@@ -5,7 +5,7 @@ from .models import Post
 
 class PostSitemap(Sitemap):
     changefreq = 'weekly'
-    priority = 0.9
+    priority = 1
     def items(self):
         return Post.published.all()
     def lastmod(self, obj):
@@ -13,7 +13,7 @@ class PostSitemap(Sitemap):
 
 class TagSitemap(Sitemap):
     changefreq = 'weekly'
-    priority = 0.7
+    priority = 0.8
     def items(self):
         return Tag.objects.all()
     def location(self, obj):
