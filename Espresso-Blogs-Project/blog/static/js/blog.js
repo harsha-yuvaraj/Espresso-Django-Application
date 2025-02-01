@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .addEventListener("click", function () {
       document.getElementById("modalText").innerHTML = "";
       document.getElementById("myModal").style.display = "none";
-    });
+    });  
 });
 
 let typewriterTimeout; // Store the timeout reference
