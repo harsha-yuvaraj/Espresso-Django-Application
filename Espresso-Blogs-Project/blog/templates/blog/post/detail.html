@@ -5,7 +5,10 @@
 
 {% block content %}
 
-<h1><span class="domine-regular">{{ post.title }}</span></h1>
+<h1 class="group-links">
+   <span class="domine-regular">{{ post.title }}</span>
+   <span id="sidebar-icon" class="close"> <i class="fa-solid fa-bars"></i> </span>
+</h1>
 
 <p class="date">
    Published {{ post.publish }} <!-- by {{ post.author }} -->
@@ -15,7 +18,7 @@
    {% include "blog/post/includes/tags.html" %}
    <button class="domine-regular" id="openModalBtn"> 
       <span id="spinnerIcon" class="spinner hidden"></span> 
-      <spanid="summaryIcon">✨</span> Quick Summary
+      <span id="summaryIcon">✨</span> Quick Summary
    </button>
 </div>
 

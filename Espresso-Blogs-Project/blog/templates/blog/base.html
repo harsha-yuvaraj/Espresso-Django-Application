@@ -4,7 +4,9 @@
 <html>
 
 <head>
-    <title>{% block title %}{% endblock %}</title>
+    <title>
+        {% block title %}{% endblock %}
+    </title>
 
     <link href="{% static 'css/blog.css' %}" rel="stylesheet">
     <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
@@ -22,7 +24,13 @@
         {% block content %}
         {% endblock %}
     </div>
+    
     <div id="sidebar">
+
+        <span id="close-sidebar" class="close">
+            <i class="fas fa-window-close"></i>
+        </span>
+
         <h2>
             <a href="{% url 'blog:post_list' %}">
                 <span class="domine-regular">Explore Our Content</span>
@@ -36,7 +44,8 @@
 
         <p>
             <a href="{% url 'blog:post_feed' %}">
-                Subscribe to our RSS feed 🛜
+                Subscribe to Espresso RSS 
+                <i class="fa-solid fa-rss" style="font-size: 1.2em;"></i>
             </a>
         </p>
 
@@ -68,9 +77,6 @@
 
     </div>
     
-    <!--
-    <button id="toggleSidebarBtn"> <i class="fa-solid fa-bars"></i> </button>
-    -->
 </body>
 
 </html>

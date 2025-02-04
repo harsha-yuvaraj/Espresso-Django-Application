@@ -18,6 +18,24 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
   });
+  
+  // Close the sidebar
+  document
+  .getElementById("close-sidebar")
+  .addEventListener("click", function () {
+    document.getElementById("sidebar").classList.add("collapse-sidebar");
+    document.getElementById("content").classList.add("expand-content");
+    document.getElementById("sidebar-icon").style.display = "inline-block";
+  });  
+
+  // Open the sidebar
+  document
+  .getElementById("sidebar-icon")
+  .addEventListener("click", function () {
+    document.getElementById("sidebar").classList.remove("collapse-sidebar");
+    document.getElementById("content").classList.remove("expand-content");
+    document.getElementById("sidebar-icon").style.display = "none";
+  }); 
 
   // Open the modal
   document
@@ -83,6 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("modalText").innerHTML = "";
       document.getElementById("myModal").style.display = "none";
     });  
+
 });
 
 let typewriterTimeout; // Store the timeout reference
