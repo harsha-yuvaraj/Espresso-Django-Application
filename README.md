@@ -18,7 +18,7 @@
 - **Social media integration** with content sharing options for **Facebook**, **Twitter (X)**, **LinkedIn**, **Telegram**, and **Direct link sharing**.  
 - **SendGrid** integration for email-based content sharing. 
 - **AI** summaries of lengthy posts utilizing the **OpenAI API**.
-    - **API Throttling**: Implemented **rate-limiting** with a cap of **10 requests per hour** for all users to ensure fair usage and prevent API abuse.
+    - **API Throttling**: Implemented **rate-limiting** for all users to ensure fair usage and prevent API abuse.
 - **Sitemap** to enhance **SEO** and improve **search engine visibility**.
 - RSS feed for easy subscription to updates. 
 

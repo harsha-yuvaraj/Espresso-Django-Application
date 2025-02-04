@@ -153,7 +153,7 @@ def post_search(request):
           
             all_results = Post.published.annotate(
                             rank=SearchRank(search_vector, search_query)
-                          ).filter(rank__gte=0.3).order_by('-rank')
+                          ).filter(rank__gte=0.35).order_by('-rank')
         else:
             return redirect('blog:post_list')
     
