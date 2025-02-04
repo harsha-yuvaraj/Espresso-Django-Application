@@ -30,8 +30,8 @@ h2 {
     float:left;
     width:60%;
     padding: 0px 30px; 
+    transition: 0.5s ease;
 }
-
 
 .expand-content {
     width: 100% !important;
@@ -145,7 +145,21 @@ input[type=submit] {
     font-weight: 400;
     font-style: normal;
     font-size: 1.2em;
-  }
+}
+
+.anta-regular {
+    font-family: "Anta", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.2em;
+}
+  
+.anta-normal {
+    font-family: "Anta", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1em;
+}
 
 .anton-pagination {
     font-family: "Anton", serif;
@@ -203,6 +217,10 @@ input[type=submit] {
     border: solid 2px rgba(0, 171, 255, 1);
     box-shadow: 0 2px 4px rgba(0, 171, 255, 0.6); 
 
+}
+
+.search-result {
+    border-bottom: 2px solid #f1f1f1;
 }
 
 /* Share post icons */

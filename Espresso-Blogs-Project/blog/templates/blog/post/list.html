@@ -6,7 +6,7 @@
 {% block content %}
 
   <h1 class="group-links">
-    <span class="anton-regular" style="color: #ab460c;">The Espresso Blog</span>
+    <span class="anta-regular" style="color: #ab460c;">The Espresso Blog</span>
     <span id="sidebar-icon" class="close"> <i class="fa-solid fa-bars"></i> </span>
   </h1>
  
@@ -22,7 +22,7 @@
   {% for post in posts %}
    <div class="card">
      <h2>
-        <a href="{{ post.get_absolute_url }}"> <span class="domine-regular">{{ post.title }}</span> </a>
+        <a href="{{ post.get_absolute_url }}"> <span class="anta-normal">{{ post.title }}</span> </a>
      </h2>  
 
      {% include "blog/post/includes/tags.html" %}

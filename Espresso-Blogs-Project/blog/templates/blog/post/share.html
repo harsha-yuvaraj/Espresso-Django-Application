@@ -12,7 +12,10 @@
       </a>
     </p>
   {% else %}
-    <h1>Share "{{ post.title }}" by E-mail</h1>
+    <h1 class="group-links">
+        Share "{{ post.title }}" by E-mail
+        <span id="sidebar-icon" class="close"> <i class="fa-solid fa-bars"></i> </span>
+    </h1>
     <form method="post">
       {{ form.as_p }}
       {% csrf_token %}

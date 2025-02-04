@@ -5,7 +5,10 @@
 
 {% block content %} 
     {% if query %}
-        <h1>Posts containing "{{ query }}"</h1>
+        <h1 class="group-links">
+            Posts containing "{{ query }}"
+            <span id="sidebar-icon" class="close"> <i class="fa-solid fa-bars"></i> </span>
+        </h1>
         <h3>
             Found {{ results_count }} result{{ results_count|pluralize }}.
             {% if results_count == 0 %} 😔 {% endif %}
@@ -16,10 +19,10 @@
         </h3>
 
         {% for post in results %}
-          <div>
+          <div class="search-result">
              <h4>
                  <a href="{{ post.get_absolute_url }}">
-                     <span class="domine-regular"> {{ post.title }} </span>
+                     <span class="anta-normal"> {{ post.title }} </span>
                  </a>
              </h4>
              <em> {{ post.body|markdown|truncatewords:15 }} </em>

@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("sidebar").classList.add("collapse-sidebar");
     document.getElementById("content").classList.add("expand-content");
     document.getElementById("sidebar-icon").style.display = "inline-block";
+    setSidebarState('true');
   });  
 
   // Open the sidebar
@@ -35,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("sidebar").classList.remove("collapse-sidebar");
     document.getElementById("content").classList.remove("expand-content");
     document.getElementById("sidebar-icon").style.display = "none";
+    setSidebarState('false');
   }); 
 
   // Open the modal
@@ -123,3 +125,25 @@ function typeWriter(elementId, text, speed) {
     type();
   }
   
+// Set the sidebar state in sessionStorage
+function setSidebarState(isCollapsed) {
+  sessionStorage.setItem('sidebarCollapsed', isCollapsed);
+}
+
+// Get the sidebar state from sessionStorage
+function getSidebarState() {
+  return sessionStorage.getItem('sidebarCollapsed') === 'true';  // default to false if not set
+}
+
+window.onload = function() {
+  const isCollapsed = getSidebarState();
+
+  if (isCollapsed) {
+      document.getElementById('close-sidebar').click();
+  }
+  else {
+      document.getElementById('sidebar-icon').click();
+  }
+};
+
+

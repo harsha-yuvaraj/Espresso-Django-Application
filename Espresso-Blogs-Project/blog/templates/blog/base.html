@@ -10,10 +10,12 @@
 
     <link href="{% static 'css/blog.css' %}" rel="stylesheet">
     <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Anton');
         @import url('https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
     </style>
         
     <script src="{% static 'js/blog.js' %}"></script>
@@ -33,7 +35,7 @@
 
         <h2>
             <a href="{% url 'blog:post_list' %}">
-                <span class="domine-regular">Explore Our Content</span>
+                <span class="anta-regular">Explore Our Content</span>
             </a>
         </h2>
         <p>
@@ -43,7 +45,7 @@
         </p>
 
         <p>
-            <a href="{% url 'blog:post_feed' %}">
+            <a href="{% url 'blog:post_feed' %}" class="anta-normal">
                 Subscribe to Espresso RSS 
                 <i class="fa-solid fa-rss" style="font-size: 1.2em;"></i>
             </a>
@@ -68,7 +70,7 @@
         <ul>
             {% for post in most_commented_posts %}
             <li class="sidebar-listitem">
-                <a href="{{ post.get_absolute_url }}"> <em>{{ post.title }}</em> </a>
+                <a href="{{ post.get_absolute_url }}" class="anta-normal"> <em>{{ post.title }}</em> </a>
             </li>
             {% empty %}
             <p>None at this time.</p>
