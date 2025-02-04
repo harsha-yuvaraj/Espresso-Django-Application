@@ -134,6 +134,8 @@ resource "aws_instance" "web" {
     echo "DEBUG=${var.DEBUG}" >> .env
     echo "ALLOWED_HOSTS=${var.ALLOWED_HOSTS}" >> .env
     echo "SENDGRID_API_KEY=${var.SENDGRID_API_KEY}" >> .env
+    echo "OPENAI_API_KEY=${var.OPENAI_API_KEY}" >> .env
+    echo "API_THROTTLE_RATE=${var.API_THROTTLE_RATE}" >> .env
     echo "DEFAULT_FROM_EMAIL=${var.DEFAULT_FROM_EMAIL}" >> .env
     echo "DB_NAME=${var.DB_NAME}" >> .env
     echo "DB_USER=${var.DB_USER}" >> .env

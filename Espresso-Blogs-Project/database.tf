@@ -45,7 +45,7 @@ resource "aws_db_instance" "default" {
   db_subnet_group_name   = aws_db_subnet_group.default.name
   vpc_security_group_ids = [aws_security_group.rds_sg.id]
   skip_final_snapshot    = true
-  publicly_accessible    = true
+  publicly_accessible    = false
   multi_az               = false
   tags = {
     Name = "Django_RDS_Instance"

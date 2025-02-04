@@ -180,6 +180,3 @@ cython_debug/
 terraform.tfstate.backup
 .terraform.tfstate.lock.info
 
-# Ignore staticfiles folder
-staticfiles/
-
