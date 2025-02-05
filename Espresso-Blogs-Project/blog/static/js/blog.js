@@ -19,6 +19,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  const postLinks = document.querySelectorAll(".card");
+
+  postLinks.forEach(function (postLink) { 
+    postLink.addEventListener("click", function (event) {
+      post = postLink.querySelector('.post-link');
+
+      if(post)
+        window.location.href = post.href;
+
+    });
+  });
+
   // Close the sidebar
   document
     .getElementById("close-sidebar")

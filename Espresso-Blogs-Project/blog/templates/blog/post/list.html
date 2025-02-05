@@ -22,7 +22,7 @@
   {% for post in posts %}
    <div class="card">
      <h2>
-        <a href="{{ post.get_absolute_url }}"> <span class="anta-normal">{{ post.title }}</span> </a>
+        <a href="{{ post.get_absolute_url }}" class="post-link"> <span class="anta-normal">{{ post.title }}</span> </a>
      </h2>  
 
      {% include "blog/post/includes/tags.html" %}
