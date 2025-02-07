@@ -229,3 +229,6 @@ def generate_post_summary(request):
 
     except Exception as e:
         return JsonResponse({'error': 'Invalid request'}, status=400)
+    
+def about(request):
+    return render(request, 'blog/post/about.html')

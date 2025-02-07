@@ -47,7 +47,7 @@
         </p>
 
         <p>
-            <a href="{% url 'blog:post_feed' %}" class="anta-normal">
+            <a href="{% url 'blog:post_feed' %}" target="_blank" class="anta-normal">
                 Subscribe to Espresso RSS 
                 <i class="fa-solid fa-rss" style="font-size: 1.2em;"></i>
             </a>
@@ -78,7 +78,12 @@
             <p>None at this time.</p>
             {% endfor %}
         </ul>
-
+        
+        <div id="sidebar-footer" class="anta-regular">
+            <hr />
+            <a href="{% url 'blog:about' %}"> About & Contact </a>
+            <a href="{% url 'sitemap' %}" target="_blank"> Sitemap </a>
+        </div>
     </div>
     
 </body>

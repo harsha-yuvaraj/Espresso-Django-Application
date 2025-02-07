@@ -18,6 +18,7 @@ urlpatterns = [
     path('<int:post_id>/share/', views.post_share, name='post_share'),
     path('<int:post_id>/comment/', views.post_comment, name='post_comment'),
     path('feed/', LatestPostsFeed(), name='post_feed'),
+    path('about/', views.about, name='about'),
     path('search/', views.post_search, name='post_search'),
     path('api/generate_summary', views.generate_post_summary, name='generate_post_summary'),
 ]

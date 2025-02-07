@@ -1,7 +1,7 @@
 # Espresso Blog  
 
 
-**A Technology & Wellness-Centric blog** built with **Django**. Prioritizing simplicity and user experience, **Espresso** includes various features to enhance user engagement and content discovery.  
+**A technology-focused blog** built with **Django**. Prioritizing simplicity and user experience, **Espresso** includes various features to enhance user engagement and content discovery.  
 
 ### **Check out the project live**: [www.espressoblog.online](https://www.espressoblog.online/)  
 

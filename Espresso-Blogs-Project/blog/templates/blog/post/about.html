@@ -1,0 +1,57 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block title %}
+The Espresso Blog | About
+{% endblock %}
+
+{% block content %}
+<h1 class="group-links">
+    <span class="anta-regular" style="color: #ab460c;">Welcome to Espresso!</span>
+    <span id="sidebar-icon" class="close"> <i class="fa-solid fa-bars"></i> </span>
+</h1>
+<p class="newsreader-regular">
+    This blog explores the latest in Computer Science and software development, offering insights into emerging technologies, 
+    their functionality, and their potential impact on the future. 
+</p>
+<p class="newsreader-regular">
+    Think of it as your <em>tech translator</em>, decoding emerging technologies, how they work, and why they matter—because let’s 
+    be honest, not everything needs a <em>fancy whitepaper</em> to make sense.
+    
+    Whether you're a seasoned engineer, a curious learner, or just someone trying to keep up with the never-ending stream of tech buzzwords, 
+    this blog is here to keep you informed—so you can stay ahead of the curve without losing your sanity. 
+ </p>
+
+<h2><b>About the Author</b></h2>
+<img src="{% static 'images/author.jpg' %}" alt="Author Image" class="author-image">
+<div>
+
+    <p> Hi, I’m <strong>Harshavardan Yuvaraj</strong> (just call me <em>Harsha</em>), currently pursuing <em>BS/MS in Computer Science at the University of South Florida</em>.
+        This blog is my personal project to showcase my technical skills in <strong>software development, 
+        AI, and cloud deployment</strong>. 
+    </p>
+
+    <p>
+        I’m passionate about using technology to solve real problems and making a positive impact on people’s lives. 
+        I focus on building practical solutions that are simple, reliable, and can benefit others.
+    </p>
+
+    <p>
+        Check out my other projects on <a href="https://github.com/harsha-yuvaraj" target="_blank"><strong><i class="fa-brands fa-github" id="about-icon-github"></i> GitHub</strong></a>.
+    </p>
+
+    <h2><b>Contact</b></h2>
+
+    <ul> 
+        <li>
+            Always happy to connect on 
+            <a href="https://www.linkedin.com/in/harsha-yuvaraj" target="_blank"><strong><i class="fa-brands fa-linkedin" id="about-icon-in"></i> LinkedIn</strong></a>.
+        </li>
+        <li>
+            Reach me via email at <a href="mailto:harshavardanyuvaraj@gmail.com"><strong>harshavardanyuvaraj@gmail.com</strong></a>.
+        </li>  
+    </ul>
+
+</div>
+
+{% endblock %}

@@ -387,6 +387,29 @@ input[type=submit] {
     display: none;
 }
 
+/* Sidebar footer */
+#sidebar-footer {
+    text-align: center; 
+    padding-top: 10px;
+    font-size: 1.3em;
+}
+
+#sidebar-footer a {
+    display: block; 
+    margin: 5px 0px; 
+    color: #035f8d;
+    cursor: pointer;
+}
+
+#sidebar-footer a:hover {
+    color: #024465;
+}
+
+#sidebar hr {
+    width: 70%; 
+    border-top: 1px solid rgba(0, 171, 255, 0.6);
+}
+
 /* Responsive design */
 @media only screen and (max-width: 700px) {
     .share-post{
@@ -435,4 +458,65 @@ input[type=submit] {
         font-size: 1.5em;
         font-weight: bold;
     }
+
+    .anta-regular {
+        font-family: "Anta", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 0.9em;
+    }
+
+    .anta-normal {
+        font-family: "Anta", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 0.8em;
+    }
+
+    .search-bar {
+        font-size: 0.8em !important; 
+        background-color: #f1f1f1; 
+        border: solid 2px rgba(0, 171, 255, 0.6);
+        transition: box-shadow 0.3s ease, border 0.3s ease; 
+        padding: 8px 12px; 
+        border-radius: 4px; 
+        width: 100%;  
+        box-sizing: border-box; 
+        margin-bottom: 8px;
+    }
+
+    #sidebar-footer {
+        text-align: center; 
+        padding-top: 5px;
+        padding-bottom: 8px;
+        font-size: 1em;
+    }
+
+    .author-image {
+        display: block;
+        margin: 0 auto;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit:cover;
+        padding: 15px 0px 10px 0px;
+    }
+}
+
+/* About page styles */
+
+#about-icon-in {
+    color: #007bb5;
+}
+
+#about-icon-github {
+    color: #181717;
+}
+
+.author-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit:cover;
+    padding: 20px 0px 10px 0px;
 }

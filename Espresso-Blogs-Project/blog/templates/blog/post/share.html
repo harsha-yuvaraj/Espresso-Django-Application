@@ -2,7 +2,7 @@
 {% block title %}The Espresso Blog | Share a post{% endblock %}
 {% block content %}
   {% if sent %}
-    <h1>E-mail successfully sent</h1>
+    <h1 class="anta-regular">E-mail successfully sent</h1>
     <p>
       "{{ post.title }}" was successfully sent to <b>{{ form.cleaned_data.to }}</b>.
     </p>
@@ -13,7 +13,7 @@
     </p>
   {% else %}
     <h1 class="group-links">
-        Share "{{ post.title }}" by E-mail
+        <span class="anta-regular">Share "{{ post.title }}" by E-mail</span>
         <span id="sidebar-icon" class="close"> <i class="fa-solid fa-bars"></i> </span>
     </h1>
     <form method="post">
