@@ -25,6 +25,11 @@
                      <span class="anta-normal"> {{ post.title }} </span>
                  </a>
              </h4>
+
+             <p class="date">
+                Published {{ post.publish|date:"M. d, Y" }} 
+             </p>
+
              <em> {{ post.body|markdown|truncatewords:15 }} </em>
          </div>
         {% endfor %} 

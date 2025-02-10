@@ -11,7 +11,7 @@
 </h1>
 
 <p class="date">
-   Published {{ post.publish }} <!-- by {{ post.author }} -->
+   Published {{ post.publish|date:"M. d, Y" }} <!-- by {{ post.author }} -->
 </p>
 
 <div class="group-links">
@@ -61,7 +61,7 @@
    <p class="info">
       {# {{ forloop.counter }} gives the current iteration counter of the loop. #}
 
-      {{ comment.name }} on {{ comment.created }}
+      {{ comment.name }}, {{ comment.created|date:"M. d, Y"  }}
    </p>
    {{ comment.body|linebreaks }}
 </div>

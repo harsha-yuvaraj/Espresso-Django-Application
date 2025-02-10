@@ -36,7 +36,7 @@ def post_list(request, tag_slug=None):
         tag = get_object_or_404(Tag, slug=tag_slug)
         all_posts = all_posts.filter(tags__in=[tag]).order_by('-publish')
 
-    # Pagination with 3 posts per page
+    # Pagination with 6 posts per page
     paginator = Paginator(all_posts, 6)
     page_number = request.GET.get('page', 1) # get the page number from the request, default to 1.
     

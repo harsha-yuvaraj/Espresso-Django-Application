@@ -14,11 +14,11 @@
 - Latest posts section to showcase new content.  
 - Most discussed posts highlighting popular articles with high user engagement.  
 - Comment system for user engagement and discussions.
-- **Recommendation system** for "Similar Posts" to keep readers engaged by suggesting relevant content.   
+- **Recommendation system** for "Similar Posts" to keep readers engaged by suggesting relevant content.  
+- **AI**-powered summaries of lengthy posts utilizing the **OpenAI REST API**.
+    - **API Throttling**: Implemented **rate-limiting** for all users to ensure fair usage and prevent API abuse. 
 - **Social media integration** with content sharing options for **Facebook**, **Twitter (X)**, **LinkedIn**, **Telegram**, and **Direct link sharing**.  
 - **SendGrid** integration for email-based content sharing. 
-- **AI** summaries of lengthy posts utilizing the **OpenAI API**.
-    - **API Throttling**: Implemented **rate-limiting** for all users to ensure fair usage and prevent API abuse.
 - **Sitemap** to enhance **SEO** and improve **search engine visibility**.
 - RSS feed for easy subscription to updates. 
 
