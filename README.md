@@ -5,7 +5,7 @@
 
 ### **Check out the project live**: [www.espressoblog.online](https://www.espressoblog.online/)  
 
-#### New features are being build and will be released soon. 
+#### New features are being build and will be released soon along with an authentication system. 
 
 
 
