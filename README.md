@@ -27,3 +27,6 @@ https://github.com/user-attachments/assets/e3e76648-0270-429c-8e47-7311da2b14e4
 - **Nginx** is configured as a reverse proxy to route HTTP requests to the application running in the Docker container. It also handles SSL termination using certificates obtained via Certbot, ensuring the site is securely served over **HTTPS**.
 - The **PostgreSQL** database is hosted on **AWS RDS** and securely connected to the EC2 instance.  
 - **Terraform** is used to automate infrastructure provisioning and ensure a consistent deployment process.
+
+---
+### Web App is currently offline.
