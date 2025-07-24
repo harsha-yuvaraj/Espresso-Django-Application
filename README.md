@@ -29,4 +29,4 @@ https://github.com/user-attachments/assets/e3e76648-0270-429c-8e47-7311da2b14e4
 - **Terraform** is used to automate infrastructure provisioning and ensure a consistent deployment process.
 
 ---
-### Web App is currently offline.
+### Espresso is currently offline.
