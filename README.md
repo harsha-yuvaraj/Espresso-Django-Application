@@ -3,12 +3,7 @@
 
 **A technology-focused blog** built with **Django**. Prioritizing simplicity and user experience, **Espresso** includes various features to enhance user engagement and content discovery.  
 
-### **Check out the project live**: [www.espressoblog.online](https://www.espressoblog.online/)  
-
-#### Update 
-New features are being build and will be released soon along with an authentication system. 
-
-
+https://github.com/user-attachments/assets/e3e76648-0270-429c-8e47-7311da2b14e4
 
 ## Features  
 
